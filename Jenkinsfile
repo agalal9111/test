@@ -5,7 +5,7 @@ pipeline {
             stage('checkout SCM'){
               steps{
                    
-                   echo "hey"
+                   git 'https://github.com/agalal9111/test.git'
               }
             }
         }
