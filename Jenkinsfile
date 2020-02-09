@@ -1,4 +1,4 @@
-pipeline {
+}pipeline {
   agent { docker { image 'node:latest' } }
 
         stages {
@@ -18,4 +18,5 @@ pipeline {
               }
             }
         }
-}
+
+        }
