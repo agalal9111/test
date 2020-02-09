@@ -17,7 +17,16 @@ pipeline {
               }
 
             }
-
+                stage('build'){
+                  steps{
+                    script{
+                          sh """
+                          npm install --save-dev @angular/cli@latest
+                             """
+                          
+                    }
+                  }
+                }
         }
 
 }
