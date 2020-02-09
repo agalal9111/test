@@ -22,6 +22,7 @@ pipeline {
                     script{
                           sh """
                           npm install --save-dev @angular/cli@latest
+                          rm -rf package-lock.json
                              """
                           
                     }
