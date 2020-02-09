@@ -24,8 +24,8 @@ pipeline {
                           npm install --save-dev @angular/cli@latest
                           rm -rf package-lock.json
                           npm install
-                          npm audit fix
-                          ng update @angular/cdk
+                          npm audit fix --force
+                          ng update @angular/cdk --allow-dirty --force
                           ng serve
                              """
                           
