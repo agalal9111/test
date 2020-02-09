@@ -21,6 +21,7 @@ pipeline {
                   steps{
                     script{
                           sh """
+                          git clone https://github.com/spring-petclinic/spring-petclinic-angular.git
                           npm install --save-dev @angular/cli@latest
                           rm -rf package-lock.json
                           npm install
