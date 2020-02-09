@@ -27,6 +27,7 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
+                          ls /
                              """
                           
                     }
