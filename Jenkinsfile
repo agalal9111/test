@@ -11,12 +11,8 @@ pipeline {
                 steps {
         script {
           sh """          
-           cd wita_src/ant
-           sed -i "s/VERSION/${VERSION}/g" version.properties
-           sed -i "s/BUILD/${BUILD}/g" version.properties
-           cat version.properties
-           cp build_resources.xml build.xml && ant
-           cp build_web.xml build.xml && ant
+           npm install --save-dev @angular/cli@latest
+
            """
             }
         }
