@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image 'node:7-alpine' } }
+  agent { docker { image 'node:latest' } }
 
         stages {
             stage('checkout SCM'){
