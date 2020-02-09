@@ -22,9 +22,9 @@ pipeline {
                     script{
                           sh """
                           npm install --save-dev @angular/cli@latest
-                          npm audit fix
                           rm -rf package-lock.json
                           npm install
+                          npm audit fix
                           ng update @angular/cdk
                           ng serve
                              """
