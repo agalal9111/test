@@ -26,7 +26,7 @@ pipeline {
                           npm install
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
-                          ng serve
+                          ng build
                              """
                           
                     }
