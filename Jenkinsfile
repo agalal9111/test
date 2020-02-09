@@ -28,6 +28,7 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
+                          ls /spring-petclinic-angular/dist
                              """
                           
                     }
