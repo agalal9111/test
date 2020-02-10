@@ -32,6 +32,15 @@ pipeline {
                     }
                   }
                 }
+                 stage('build'){
+                  steps{
+                    script{
+                          sh """
+                             ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                             """
+                    }
+                  }
+                 }
         }
 
 }
