@@ -1,12 +1,6 @@
 pipeline {
     agent none
-    stages {
-        stage('SCM') {
-            agent { dockerfile true }
-            steps {
-                 git 'https://github.com/agalal9111/test.git' 
-            }
-        }
+    stages { 
          stage('build'){
             agent { dockerfile true }
                   steps{
@@ -21,5 +15,15 @@ pipeline {
                     }
                   }
                 }
+                stage('Deploy'){
+            agent any
+                  steps{
+                    script{
+                          sh """
+                          
+                          ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                          }
+                          }
+                          }
 }
 }
