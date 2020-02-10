@@ -1,9 +1,17 @@
 version: '3'
 
+
+
 services:
+
    web00:
-     image: httpd:latest
+
+     image: centos/httpd
+
      volumes:
-      - /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@2/dist/:/usr/local/apache2/htdocs/
+
+     - /home/ec2-user/petclinic/:/var/www/html/petclinic
+
      ports:
+
        - "8000:80"
