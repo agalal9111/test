@@ -21,9 +21,8 @@ pipeline {
                   steps{
                     script{
                           sh """     
-                          docker-compose build
+                          
                           docker-compose up -d
-                          echo "apache is up and running now"
                              """
                           }
                        }   
