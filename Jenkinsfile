@@ -11,6 +11,7 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
+                          ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
                              """                 
                     }
                   }
@@ -20,7 +21,8 @@ pipeline {
                   steps{
                     script{
                           sh """     
-                          ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                          docker-compose build
+                          docker-compose up
                              """
                           }
                        }   
