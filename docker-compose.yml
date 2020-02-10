@@ -4,6 +4,6 @@ services:
    web00:
      image: httpd:latest
      volumes:
-      - /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@2/dist/:/usr/local/apache2/conf/
+      - /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@2/dist/:/usr/local/apache2/htdocs/
      ports:
        - "8000:80"
