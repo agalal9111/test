@@ -37,7 +37,6 @@ pipeline {
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
                              sudo mkdir /var/www/html/petclinic
-                             sudo cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@2/dist/* /var/www/html/petclinic
                              """
                     }
                   }
