@@ -32,7 +32,7 @@ pipeline {
                     }
                   }
                 }
-                 stage('build'){
+                 stage('Deploy'){
                   steps{
                     script{
                           sh """
