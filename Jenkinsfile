@@ -23,6 +23,7 @@ pipeline {
                           sh """     
                           docker-compose build
                           docker-compose up
+                          echo "apache is up and running now"
                              """
                           }
                        }   
