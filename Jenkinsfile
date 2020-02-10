@@ -36,7 +36,6 @@ pipeline {
                     script{
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                             sudo mkdir /var/www/html/petclinic
                              """
                     }
                   }
