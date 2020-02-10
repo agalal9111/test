@@ -19,11 +19,11 @@ pipeline {
             agent any
                   steps{
                     script{
-                          sh """
-                          
+                          sh """     
                           ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                             """
                           }
-                          }
-                          }
+                       }   
+                               }
 }
 }
