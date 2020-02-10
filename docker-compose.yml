@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-   web01:
+   web00:
      image: httpd:latest
      container_name: apache
      volumes:
