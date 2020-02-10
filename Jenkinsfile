@@ -22,7 +22,7 @@ pipeline {
                     script{
                           sh """     
                           docker-compose build
-                          docker-compose up -d
+                          docker-compose up -dit
                           echo "apache is up and running now"
                              """
                           }
