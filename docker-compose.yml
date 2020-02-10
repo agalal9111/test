@@ -3,7 +3,6 @@ version: '3'
 services:
    web00:
      image: httpd:latest
-     container_name: apache
      volumes:
       - /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@2/dist/:/usr/local/apache2/conf/
      ports:
