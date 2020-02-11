@@ -29,9 +29,17 @@ pipeline {
                           \nRewriteRule ^ - [L]" > /home/ec2-user/petclinic/.htaccess
                           cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@3/dist/* /home/ec2-user/petclinic
                           docker-compose up -d
-                          docker-compose exec web00 sed '151 s/None/ALL/' /etc/httpd/conf/httpd.conf
                              """
                           }
+                    post{
+                      success{
+                        script{
+                              sh """
+                             docker-compose exec web00 sed '151 s/None/ALL/' /etc/httpd/conf/httpd.conf
+                                 """
+                        }
+                      }        
+                    }
                        }   
                                }
 }
