@@ -42,12 +42,12 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     zip \
     openssh-client \
     wget \
-    sudo \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
+RUN   apt-get update
+RUN   apt-get install sudo
 RUN   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y
-ENV CHROME_BIN="/usr/bin/google-chrome"    
+RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y    
 
 ARG NG_CLI_VERSION=9.0.1
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
