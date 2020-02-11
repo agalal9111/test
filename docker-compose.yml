@@ -1,0 +1,17 @@
+version: '3'
+
+
+
+services:
+
+   web00:
+
+     image: centos/httpd
+
+     volumes:
+
+     - /home/ec2-user/petclinic/:/var/www/html/petclinic
+
+     ports:
+
+       - "8000:80"
