@@ -1,6 +1,12 @@
 pipeline {
     agent none
     stages { 
+      stage('Checkout'){
+        agent { dockerfile true }
+        steps{
+          git clone https://github.com/spring-petclinic/spring-petclinic-angular.git
+        }
+      }
          stage('build'){
             agent { dockerfile true }
                   steps{
