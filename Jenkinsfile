@@ -37,6 +37,7 @@ pipeline {
                 }
                stage('Unit Test'){
                   steps{
+                           sh "ng serve"
                           sh "ng e2e"
                   }
                }  
