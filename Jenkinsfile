@@ -37,7 +37,7 @@ pipeline {
                 }
                stage('Unit Test'){
                   steps{
-                          sh "ng test --single-run"
+                          sh "ng test --watch=false"
                   }
                }  
                           
