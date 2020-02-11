@@ -26,6 +26,8 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
+                          mkdir /home/ec2-user/petclinic
+                          cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@3/dist/* /home/ec2-user/petclinic
                              """                 
 
                     }
@@ -34,4 +36,10 @@ pipeline {
 
                 }
     }
+    post {
+    always {
+      echo 'Cleaning up...'
+      deleteDir()
+    }
+  }
 }              
