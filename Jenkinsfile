@@ -32,14 +32,17 @@ pipeline {
                              """
                           }
                     post{
-                      success{
-                        script{
-                              sh """
-                             docker-compose exec web00 sed '151 s/None/ALL/' /etc/httpd/conf/httpd.conf
-                                 """
-                        }
-                      }        
-                    }
+                          success{
+                               script{
+                                         sh """
+                                         docker-compose exec web00 sed '151 s/None/ALL/' /etc/httpd/conf/httpd.conf
+                                            """
+                                      }
+                                 }
+                          failure{
+                              echo 'failed to deploy '
+                                 }
+                       }
                        }   
                                }
 }
