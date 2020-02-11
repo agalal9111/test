@@ -42,7 +42,9 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     zip \
     openssh-client \
     wget \
+    sudo \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
 RUN   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y
 ENV CHROME_BIN="/usr/bin/google-chrome"    
