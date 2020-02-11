@@ -26,8 +26,8 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
-                          ls /home/ec2-user/
-                          ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@3/dist/
+                          
+                          
                              """                 
 
                     }
