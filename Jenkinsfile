@@ -26,7 +26,7 @@ pipeline {
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
                           ng build
-                          mkdir /home/ec2-user/petclinic
+                          sudo mkdir /home/ec2-user/petclinic
                           cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@3/dist/* /home/ec2-user/petclinic
                              """                 
 
@@ -35,6 +35,12 @@ pipeline {
                   }
 
                 }
+               stage('Unit Test'){
+                  steps{
+                          sh "ng test"
+                  }
+               }  
+                          
     }
     post {
     always {
