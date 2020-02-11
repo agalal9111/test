@@ -37,7 +37,7 @@ pipeline {
                 }
                stage('Unit Test'){
                   steps{
-                          sh "ng test --watch=false"
+                          sh "ng e2e"
                   }
                }  
                           
