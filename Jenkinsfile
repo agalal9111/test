@@ -31,7 +31,9 @@ pipeline {
                           docker-compose up -d
                              """
                           }
-                    post{
+                    
+                       } 
+                        post{
                           success{
                                script{
                                          sh """
@@ -43,7 +45,6 @@ pipeline {
                               echo 'failed to deploy '
                                  }
                        }
-                       }   
                                }
 }
 }
