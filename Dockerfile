@@ -48,7 +48,7 @@ RUN   apt-get update
 RUN   apt-get install sudo
 RUN   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y 
-ENV CHROME_BIN="/usr/bin/google-chrome --no-sandbox"
+ENV CHROME_BIN="/usr/bin/google-chrome"
 
 ARG NG_CLI_VERSION=9.0.1
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
