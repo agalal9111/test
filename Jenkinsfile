@@ -1,20 +1,14 @@
 pipeline {
-
-  agent none
-  
-        stages {
-
-            stage('checkout SCM'){
-              agent { dockerfile true }
-
-              steps{      
-                   git 'https://github.com/spring-petclinic/spring-petclinic-angular.git'
-
-              }
-
-            }
-                stage('build'){
-                  agent { dockerfile true }
+    agent none
+    stages { 
+      stage('Checkout'){
+        agent { dockerfile true }
+        steps{
+          git 'https://github.com/agalal9111/test.git'
+        }
+      }
+         stage('build'){
+            agent { dockerfile true }
                   steps{
                     script{
                           sh """
@@ -22,45 +16,31 @@ pipeline {
                           npm install
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
-                          ng build
-                             """
-                          
+                        
+                          ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                             """                 
                     }
                   }
                 }
-                 stage('Build-Prod'){
-                  agent { dockerfile true }
+                stage('Deploy'){
+            agent any
                   steps{
                     script{
-                          sh """
-                             ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                             ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@4/dist
+                          sh """     
+                          mkdir /home/ec2-user/petclinic
+                          echo -e "RewriteEngine On
+                          \n# If an existing asset or directory is requested go to it as it is
+                          \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+                          \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+                          \nRewriteRule ^ - [L]" > /home/ec2-user/petclinic/.htaccess
+                          cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/* /home/ec2-user/petclinic
+                          docker-compose up -d --force-recreate
+                          
                              """
-                    }
-                  }
-                 }
-              stage('PreDeploy'){
-                agent any
-                  steps{
-                    script{
-                          sh """ 
-                              mkdir /home/ec2-user/petclinic
-                              cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@4/dist/* /home/ec2-user/petclinic/
-                              echo -e "RewriteEngine On
-                             \n# If an existing asset or directory is requested go to it as it is
-                             \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-                             \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-                             \nRewriteRule ^ - [L]" > /home/ec2-user/petclinic/.htaccess
-                             """
-                    }
-                  }
-              }
-        }
-  post {
-    always {
-      echo 'Cleaning up...'
-      deleteDir()
-    }
-  }
-
+                          }
+                    
+                       } 
+                        
+                               }
+}
 }
