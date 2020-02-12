@@ -16,6 +16,9 @@ ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
 ARG USER_ID=1000
 
+RUN npm i --save-dev karma karma-chrome-launcher 
+
+
 #reduce logging, disable angular-cli analytics for ci environment
 ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=false
 
@@ -49,8 +52,7 @@ RUN   apt-get install sudo
 RUN   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y 
 #ENV CHROME_BIN="/usr/bin/google-chrome"
-RUN npm i --save-dev karma karma-chrome-launcher karma-mocha karma-chai
-RUN npm i --save-dev mocha chai
+
 
 ARG NG_CLI_VERSION=9.0.1
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
