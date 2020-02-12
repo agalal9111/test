@@ -35,12 +35,7 @@ pipeline {
                   }
 
                 }
-               stage('Unit Test'){
-                  steps{
-                          
-                          sh "ng test --watch=false --browsers=ChromeHeadless"
-                  }
-               }  
+               
                           
     }
     post {
