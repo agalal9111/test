@@ -1,6 +1,6 @@
 FROM node:latest
 
-ARG   DIR="/usr/src/app"
+ARG   DIR="/app"
 RUN   npm install -g @angular/cli@latest
 RUN   apt-get update
 RUN   apt-get install sudo
