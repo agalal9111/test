@@ -31,25 +31,17 @@ pipeline {
                     }
                   }
                 }
-                 stage('PreDeploy'){
+                 stage('Deploy'){
                   steps{
                     script{
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                             ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/
-                             cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/* /pet      
-                             ls /pet
-                             
+                       
                              """
                     }
                   }
                  }
         }
-  post {
-    always {
-      echo 'Cleaning up...'
-      deleteDir()
-    }
-  }
+  
 
 }
