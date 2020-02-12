@@ -1,14 +1,14 @@
 pipeline {
-    agent none
+    agent { dockerfile true }
     stages { 
       stage('Checkout'){
-        agent { dockerfile true }
+        
         steps{
           git 'https://github.com/spring-petclinic/spring-petclinic-angular.git'
         }
       }
          stage('build'){
-            agent { dockerfile true }
+           
                   steps{
                     script{
                           sh """
@@ -22,6 +22,11 @@ pipeline {
                     }
                   }
                 }
+                
+                          
+                           
+} //end of stages SCM
+            stages{
                 stage('Deploy'){
             agent any
                   steps{
@@ -34,13 +39,10 @@ pipeline {
                           \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
                           \nRewriteRule ^ - [L]" > /home/ec2-user/petclinic/.htaccess
                           cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/* /home/ec2-user/petclinic
-                          docker-compose up -d --force-recreate
-                          
                              """
-                          }
-                    
-                       } 
-                        
-                               }
-}
+            }
+                  }
+                }
+            }
+
 }
