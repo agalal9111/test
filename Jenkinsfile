@@ -34,7 +34,7 @@ pipeline {
 
                 }
                     stage('PreDeploy'){
-            agent any
+            
                   steps{
                     script{
                           sh """     
