@@ -37,7 +37,7 @@ pipeline {
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
                              ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@4/dist
-                             mkdir /home/ec2-user/petclinic/
+                             sudo mkdir /home/ec2-user/petclinic/
                              cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline@4/dist/* /home/ec2-user/petclinic/
                              echo -e "RewriteEngine On
                              \n# If an existing asset or directory is requested go to it as it is
