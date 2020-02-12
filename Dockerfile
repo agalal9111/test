@@ -8,5 +8,7 @@ RUN   sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
 ENV CHROME_BIN="/usr/bin/google-chrome"
 
+VOLUME /pet
+
 
 
