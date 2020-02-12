@@ -12,7 +12,7 @@ pipeline {
 
                    
 
-                   git 'https://github.com/agalal9111/test.git'
+                   git 'https://github.com/spring-petclinic/spring-petclinic-angular.git'
 
               }
 
@@ -36,7 +36,7 @@ pipeline {
                     script{
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                             docker-compose up -d
+                             
                              """
                     }
                   }
