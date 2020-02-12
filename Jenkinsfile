@@ -5,7 +5,7 @@ pipeline {
         stages {
 
             stage('checkout SCM'){
-              { dockerfile true }
+              agent { dockerfile true }
 
               steps{      
                    git 'https://github.com/spring-petclinic/spring-petclinic-angular.git'
@@ -14,7 +14,7 @@ pipeline {
 
             }
                 stage('build'){
-                  { dockerfile true }
+                  agent { dockerfile true }
                   steps{
                     script{
                           sh """
@@ -29,7 +29,7 @@ pipeline {
                   }
                 }
                  stage('Build-Prod'){
-                   { dockerfile true }
+                  agent { dockerfile true }
                   steps{
                     script{
                           sh """
