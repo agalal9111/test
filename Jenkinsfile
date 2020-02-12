@@ -36,9 +36,9 @@ pipeline {
                     script{
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                             ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist
-                             cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist /x        
-                             ls /x
+                             ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/
+                             cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/* /pet      
+                             ls /pet
                              
                              """
                     }
