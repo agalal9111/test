@@ -47,6 +47,9 @@ pipeline {
                           \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
                           \nRewriteRule ^ - [L]" > /home/ec2-user/petclinic/.htaccess
                           cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist/* /home/ec2-user/petclinic
+                          }
+                      } 
+                              }
                
                           
     }
