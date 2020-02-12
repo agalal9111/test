@@ -36,6 +36,7 @@ pipeline {
                     script{
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
+                             docker run --name=apache01-d -v /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline:/var/www/html -p 2000:80 centos/httpd:latest
                        
                              """
                     }
