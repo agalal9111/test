@@ -39,7 +39,7 @@ pipeline {
                     script{
                           sh """     
                           ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
-                          mkdir /home/ec2-user/petclinic
+                          sudo mkdir /home/ec2-user/petclinic
                           echo -e "RewriteEngine On
                           \n# If an existing asset or directory is requested go to it as it is
                           \nRewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
