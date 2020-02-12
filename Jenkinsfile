@@ -25,7 +25,7 @@ pipeline {
                           npm install
                           npm audit fix --force
                           ng update @angular/cdk --allow-dirty --force
-                          ng build
+                          
                              """
                           
                     }
@@ -37,8 +37,8 @@ pipeline {
                           sh """
                              ng build --prod --base-href=/petclinic/ --deploy-url=/petclinic/
                              ls /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist
-                             
-                             
+                             cp -R /home/ec2-user/.jenkins/workspace/FrontEnd-Pipeline/dist /x        
+                             ls /x
                              
                              """
                     }
