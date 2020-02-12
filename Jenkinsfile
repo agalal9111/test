@@ -4,7 +4,7 @@ pipeline {
       stage('Checkout'){
         agent { dockerfile true }
         steps{
-          git 'https://github.com/agalal9111/test.git'
+          git 'https://github.com/spring-petclinic/spring-petclinic-angular.git'
         }
       }
          stage('build'){
