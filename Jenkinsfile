@@ -22,11 +22,7 @@ pipeline {
                     }
                   }
                 }
-                
-                          
-                           
-} //end of stages SCM
-            stages{
+                 stages{
                 stage('Deploy'){
             agent any
                   steps{
@@ -44,5 +40,9 @@ pipeline {
                   }
                 }
             }
+                          
+                           
+} //end of stages SCM
+           
 
 }
